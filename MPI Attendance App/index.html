@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>College Attendance System</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="background"></div>
+
+  <header>
+    <h1><i class="fa-solid fa-user-check"></i> Magura Polytechnic Institute Attendance Sheet</h1>
+  </header>
+
+  <main>
+    <!-- Form Section -->
+    <div class="form-container glass">
+      <h2><i class="fa-solid fa-pen-to-square"></i> Mark Attendance</h2>
+      
+      <label for="name"><i class="fa-solid fa-user"></i> Student Name:</label>
+      <input type="text" id="name" placeholder="Enter student name">
+
+      <label for="roll"><i class="fa-solid fa-id-card"></i> Roll Number:</label>
+      <input type="text" id="roll" placeholder="Enter roll number">
+
+      <label for="semester"><i class="fa-solid fa-layer-group"></i> Semester:</label>
+      <select id="semester">
+        <option value="1st">1st</option>
+        <option value="2nd">2nd</option>
+        <option value="3rd">3rd</option>
+        <option value="4th">4th</option>
+        <option value="5th">5th</option>
+        <option value="6th">6th</option>
+        <option value="7th">7th</option>
+        <option value="8th">8th</option>
+      </select>
+      
+<div class="status-buttons">
+  <button type="button" id="presentBtn" class="status-btn present active" onclick="setStatus('Present')">
+    ✅ Present
+  </button>
+  <button type="button" id="absentBtn" class="status-btn absent" onclick="setStatus('Absent')">
+    ❌ Absent
+  </button>
+</div>
+
+<input type="hidden" id="status" value="Present">
+
+
+
+
+      <button onclick="addAttendance()"><i class="fa-solid fa-plus"></i> Add Attendance</button>
+    </div>
+
+    <!-- Records Section -->
+    <!-- Records Section -->
+<div class="table-container glass">
+  <h2><i class="fa-solid fa-table"></i> Attendance Records</h2>
+  <table id="attendanceTableWrapper">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Roll</th>
+        <th>Semester</th>
+        <th>Status</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody id="attendanceTable"></tbody>
+  </table>
+
+  <!-- Buttons -->
+  <div class="table-buttons">
+    <button class="clear-btn" onclick="clearAttendance()">
+      <i class="fa-solid fa-trash"></i> Clear All
+    </button>
+    <button class="download-btn" onclick="downloadPDF()">
+      <i class="fa-solid fa-file-pdf"></i> Download PDF
+    </button>
+    
+  </div>
+</div>
+
+
+  </main>
+ <!-- Footer -->
+<footer class="footer glass">
+  <p>© 2025 College Attendance System. Created by <strong>PROTNO ISLAM</strong></p>
+  <div class="social-links">
+    <a href="https://www.instagram.com/p_r_o_t_n_o/?fbclid=IwY2xjawM5Dy1leHRuA2FlbQIxMABicmlkETFzYXhCSTBybEhldWRuNzFHAR6bU9EjmmT-QomLodrm3PYtni7Zey9EDkzHEk56B_czlkXr3uuGNTSqkxs3VQ_aem_cEPRWYx-rg2hXY_wahQUOQ#" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/protno.islam1" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+</footer>
+
+
+
+  <!-- jsPDF + AutoTable -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

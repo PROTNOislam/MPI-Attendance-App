@@ -1,0 +1,410 @@
+
+/* General Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 25px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+header h1 {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+/* Form Container */
+.form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.form-container h2 {
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+  color: #ffe9f3;
+}
+
+label {
+  font-weight: 500;
+  margin-top: 10px;
+  display: block;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+}
+
+input:focus, select:focus {
+  box-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+/* Status Radio */
+.status {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  background: linear-gradient(45deg, #ff6a88, #ff99ac, #ffb347);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Table */
+.table-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  overflow-x: auto; /* ✅ Mobile friendly */
+}
+
+.table-container h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #ffe9f3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 600px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  background: rgba(255,255,255,0.1);
+}
+
+th {
+  background: rgba(0,0,0,0.4);
+  font-weight: 600;
+}
+
+tr:hover td {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ---------- Futuristic status toggle ---------- */
+.status-toggle {
+  display:flex;
+  justify-content:center;
+  margin: 18px auto;
+}
+
+/* hide native radios */
+.status-toggle input[type="radio"] { display: none; }
+
+/* the pill wrapper (grid with two columns) */
+.status-toggle .toggle{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  width: 280px;             /* responsive-friendly width */
+  max-width: 90%;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+  gap: 6px;
+}
+
+/* the two label options */
+.status-toggle .toggle .opt{
+  z-index: 2;               /* sit above slider */
+  text-align: center;
+  padding: 10px 6px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: color .20s ease, transform .20s ease;
+  user-select: none;
+}
+
+/* slider (moving colored pill) */
+.status-toggle .toggle .slider{
+  grid-column: 1;           /* default: left column */
+  margin: 3px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #36d1dc, #5b86e5);
+  box-shadow: 0 8px 20px rgba(54,86,180,0.28);
+  transition: all .25s cubic-bezier(.2,.9,.3,1);
+  z-index: 1;
+}
+
+/* move slider to right column when "absent" is checked */
+#absent:checked ~ .toggle .slider {
+  grid-column: 2;
+}
+
+/* highlight the active label text color */
+#present:checked ~ .toggle label[for="present"],
+#absent:checked  ~ .toggle label[for="absent"] {
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* hover effect on options */
+.status-toggle .toggle .opt:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* small responsive tweaks */
+@media (max-width:420px){
+  .status-toggle .toggle{ width: 220px; padding:5px; }
+  .status-toggle .toggle .opt{ font-size:13px; padding:8px 4px; gap:6px; }
+}
+
+
+/* Hide the radio inputs */
+.status-toggle input[type="radio"] {
+  display: none;
+}
+
+/* Style the labels as buttons */
+.status-toggle label {
+  flex: 1;
+  padding: 12px 0;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Selected state */
+.status-toggle input[type="radio"]:checked + label {
+  background: linear-gradient(45deg, #36d1dc, #5b86e5);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(54,209,220,0.5);
+  transform: scale(1.05);
+}
+
+
+/* Download PDF Button */
+.download-btn {
+  margin-top: 20px;
+  background: linear-gradient(45deg, #36d1dc, #5b86e5);
+}
+
+.download-btn:hover {
+  box-shadow: 0 6px 15px rgba(91,134,229,0.5);
+}
+
+/* Container for table buttons */
+.table-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Clear Button Style */
+.clear-btn {
+  flex: 1;
+  background: linear-gradient(45deg, #ff5858, #f09819);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.clear-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255,88,88,0.5);
+}
+
+
+/* ✅ RESPONSIVENESS */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-container, .table-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  input, select, button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  th, td {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  .status {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  table {
+    font-size: 12px;
+    min-width: 450px;
+  }
+}
+
+
+
+
+/* Footer */
+footer.footer {
+  text-align: center;
+  padding: 15px 10px;
+  color: #fff;
+  font-size: 14px;
+  position: relative;
+  margin-top: 30px;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer.footer {
+  text-align: center;
+  padding: 15px 10px;
+  color: #fff;
+  font-size: 14px;
+  position: relative;
+  margin-top: 30px;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+}
+
+footer.footer p {
+  margin: 0;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+/* Social Links */
+footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+footer .social-links a {
+  color: #fff;
+  font-size: 18px;
+  transition: transform 0.2s, color 0.2s;
+}
+
+footer .social-links a:hover {
+  transform: scale(1.2);
+  color: #ffd700; /* Gold on hover */
+}
+
+.status-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.status-btn {
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 130px;
+  color: #fff;
+}
+
+/* Default style */
+.status-btn.present {
+  background: #22c55e; /* green */
+  opacity: 0.6;
+}
+.status-btn.absent {
+  background: #ef4444; /* red */
+  opacity: 0.6;
+}
+
+/* Active button = full color */
+.status-btn.active {
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
